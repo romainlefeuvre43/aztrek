@@ -1,0 +1,334 @@
+/* *******************************************************
+                        BASE
+******************************************************** */
+html {
+  font-size: 87.5%;
+  font-family: "Hind", sans-serif; }
+
+body {
+  margin: 0; }
+
+* {
+  box-sizing: border-box; }
+
+.container {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0 15px; }
+
+h1 {
+  font-weight: bold; }
+
+h1, h2, h3 {
+  font-family: "Hind", "Hind", sans-serif;
+  font-weight: normal; }
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+a:link, a:visited {
+  text-decoration: none; }
+a:hover, a:focus {
+  text-decoration: underline; }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto; }
+
+/* *******************************************************
+                        HEADER
+******************************************************** */
+#main-header {
+  background: url("../images/bg-header-mobile.jpg") center no-repeat;
+  background-size: cover; }
+
+.logo-header img {
+  max-width: 210px;
+  margin: 0 auto;
+  padding: 30px 0; }
+
+#nav-secondaire {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px; }
+
+.burger {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url("../images/menu-burger.png") no-repeat;
+  background-size: contain;
+  font-size: 0;
+  margin-right: auto; }
+
+.newsletter {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url("../images/newsletter.png") no-repeat;
+  background-size: contain;
+  font-size: 0;
+  margin-right: 15px; }
+
+.user {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url("../images/user-shape.png") no-repeat;
+  background-size: contain;
+  font-size: 0;
+  margin-right: 15px; }
+
+.phone {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url("../images/call-answer.png") no-repeat;
+  background-size: contain;
+  font-size: 0; }
+
+#main-nav {
+  display: none; }
+
+#sidr-main {
+  background-color: #334d5c;
+  border-radius: 0 10px 10px 0;
+  box-shadow: none; }
+  #sidr-main a {
+    color: #fff; }
+  #sidr-main ul ul {
+    display: none; }
+
+#sidr-id-home img {
+  width: 40px;
+  height: 40px; }
+
+/* *******************************************************
+                      DESTINATIONS
+******************************************************** */
+#destinations h1, #destinations p {
+  text-align: center; }
+#destinations .sejours {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+#destinations figure {
+  position: relative;
+  width: 210px; }
+#destinations figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  display: block;
+  width: 100%;
+  top: 0;
+  text-align: center;
+  background-color: rgba(51, 77, 92, 0.7);
+  border-radius: 10px  10px 0 0; }
+  #destinations figcaption h2 {
+    color: #fff; }
+
+/* *******************************************************
+                    LES INCONTOURNABLES
+******************************************************** */
+#incontournables {
+  background-color: #334d5c; }
+  #incontournables h1, #incontournables p {
+    text-align: center; }
+  #incontournables h1, #incontournables p, #incontournables a {
+    color: #fff; }
+  #incontournables .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+
+#incontournables figure {
+  position: relative; }
+  #incontournables figure img {
+    border-radius: 20px; }
+#incontournables figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  display: block;
+  width: 100%;
+  top: 105px;
+  text-align: center;
+  background-color: rgba(51, 77, 92, 0.7); }
+
+/* *******************************************************
+                      PHOTOS
+******************************************************** */
+#photos h1, #photos p {
+  text-align: center; }
+#photos figure {
+  position: relative; }
+#photos figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  background-color: rgba(51, 77, 92, 0.7); }
+  #photos figcaption p {
+    color: #fff; }
+
+.pictures .button {
+  display: block;
+  width: 210px;
+  height: 65px;
+  background-color: #334d5c;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding-bottom: 30px; }
+.pictures a {
+  color: #fff;
+  text-align: center; }
+
+/* *******************************************************
+                        AVIS
+******************************************************** */
+#avis {
+  background: url("../images/bg-avis.jpg") center no-repeat fixed;
+  background-size: cover; }
+  #avis .button {
+    display: block;
+    background-color: #334d5c;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 25px; }
+  #avis h1, #avis p {
+    text-align: center; }
+  #avis .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  #avis h1, #avis h2, #avis p {
+    color: #fff; }
+
+#avis article {
+  display: block;
+  width: 210px;
+  height: 160px;
+  background-color: rgba(51, 77, 92, 0.7);
+  margin: 0 auto;
+  border-radius: 10px; }
+  #avis article h2, #avis article p {
+    text-align: center;
+    font-size: 1em; }
+
+/* *******************************************************
+                    ABOUT
+******************************************************** */
+#about .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  #about .container .more {
+    display: block;
+    background-color: #334d5c;
+    color: #fff;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 20px; }
+#about h1, #about p {
+  text-align: center; }
+
+#about article {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+/* *******************************************************
+                    FOOTER
+******************************************************** */
+footer {
+  background-color: #334d5c; }
+  footer p, footer a {
+    color: #fff; }
+
+#logo-footer {
+  display: block;
+  margin: 0 auto;
+  max-width: 50%;
+  padding-top: 30px; }
+
+#social-nav {
+  padding: 30px 0; }
+  #social-nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+  #social-nav .facebook {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url("../images/facebook.png") no-repeat;
+    background-size: contain;
+    margin-right: 15px; }
+    #social-nav .facebook a {
+      font-size: 0; }
+  #social-nav .instagram {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url("../images/instagram.png") no-repeat;
+    background-size: contain;
+    margin-right: 15px; }
+    #social-nav .instagram a {
+      font-size: 0; }
+  #social-nav .youtube {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url("../images/youtube-logo.png") no-repeat;
+    background-size: contain;
+    margin-right: 15px; }
+    #social-nav .youtube a {
+      font-size: 0; }
+  #social-nav .twitter {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url("../images/twitter-logo.png") no-repeat;
+    background-size: contain; }
+    #social-nav .twitter a {
+      font-size: 0; }
+
+.footer-blog {
+  display: block;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 0 auto; }
+  .footer-blog a {
+    color: #334d5c;
+    margin: 0 auto; }
+
+.footer-contact {
+  text-align: center;
+  padding: 30px 0; }
+
+.external-links {
+  text-align: center; }
+
+/*# sourceMappingURL=styles.css.map */
