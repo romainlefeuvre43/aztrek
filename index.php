@@ -1,9 +1,15 @@
 <?php
 require_once 'lib/functions.php';
+require_once 'model/database.php';
 
+$list_destinations = getAllEntity("destination");
+$list_sejours = getHilightedSejour(3);
+$list_comment = getAllEntity("comment");
 
 getHeader("Accueil");
 ?>
+
+
 
 <section id="destinations">
 
@@ -16,45 +22,16 @@ getHeader("Accueil");
 
     <div class="container">
         <article class="sejours">
-            <a href="#">
-                <figure><img src="../Aztrek/images/bg-mexique.png" alt="photo du mexique avec montagne et temple">
-                    <figcaption>
-                        <h2>Mexique</h2>
-                    </figcaption>
-                </figure>
-            </a>
 
-            <a href="#">
-                <figure><img src="../Aztrek/images/bg-guatemala.png" alt="photo d'un lac avec vue sur montagne">
-                    <figcaption>
-                        <h2>Guatémala</h2>
-                    </figcaption>
-                </figure>
-            </a>
-
-            <a href="#">
-                <figure><img src="../Aztrek/images/bg-salvador.png" alt="photo jungle autour du volcan">
-                    <figcaption>
-                        <h2>Salvador</h2>
-                    </figcaption>
-                </figure>
-            </a>
-
-            <a href="#">
-                <figure><img src="../Aztrek/images/bg-honduras.png" alt="photo jungle avec route">
-                    <figcaption>
-                        <h2>Honduras</h2>
-                    </figcaption>
-                </figure>
-            </a>
-
-            <a href="#">
-                <figure><img src="../Aztrek/images/bg-costa-rica.jpg" alt="photo volcan sous les nuages">
-                    <figcaption>
-                        <h2>Costa-Rica</h2>
-                    </figcaption>
-                </figure>
-            </a>
+            <?php foreach ($list_destinations as $destination) : ?>
+                <a href="destination.php?id=<?php echo $destination["id"]; ?>">
+                    <figure><img src="uploads/<?php echo $destination["picture"]; ?>" alt="<?php echo $destination["title"]; ?>">
+                        <figcaption>
+                            <h2><?php echo $destination["title"]; ?></h2>
+                        </figcaption>
+                    </figure>
+                </a>
+            <?php endforeach; ?>
 
         </article>
     </div>
@@ -72,39 +49,20 @@ getHeader("Accueil");
         </header>
 
         <div class="owl-carousel carousel-incontournables">
-            <article class="item">
-                <a href="#">
-                    <figure><img src="../Aztrek/images/caminando-mexico.jpg" alt="First slide">
-                        <figcaption>
-                            <h2>Caminando Mexico</h2>
-                            <p>10 jours</p>
-                            <p>À partir de 3000€</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </article>
-            <article class="item">
-                <a href="#">
-                    <figure><img src="../Aztrek/images/bg-yucatan.jpg" alt="Second slide">
-                        <figcaption>
-                            <h2>Les Trésors du Yucatán</h2>
-                            <p>7 jours</p>
-                            <p>À partir de 2500€</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </article>
-            <article class="item">
-                <a href="#">
-                    <figure><img src="../Aztrek/images/bg-volcans.jpg" alt="Third slide">
-                        <figcaption>
-                            <h2>Les Volcans</h2>
-                            <p>14 jours</p>
-                            <p>À partir de 4000€</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </article>
+            <?php foreach ($list_sejours as $sejour) : ?>
+                <article class="item">
+                    <a href="#">
+                        <figure><img src="uploads/<?php echo $sejour["picture"]; ?>" alt="<?php echo $sejour["title"]; ?>">
+                            <figcaption>
+                                <h2><?php echo $sejour["title"]; ?></h2>
+                                <p><?php echo $sejour["duration"]; ?></p>
+                                <p>À partir de 3000€</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </article> 
+            <?php endforeach; ?>
+
         </div>
 
 
@@ -178,25 +136,15 @@ getHeader("Accueil");
         </header>
 
         <div class="owl-carousel carousel-avis">
+            <?php foreach ($list_comment as $comment) : ?>
             <article class="item">
-                <h2 alt="First slide">Caminando Mexico</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                 
+                <h2 alt="First slide"><?php echo $comment["title"]; ?></h2>
+                <p><?php echo $comment["content"]; ?></p>
                 <p> Jean Michel Heureux</p>
-
+                
             </article>
-            <article class="item">
-                <h2 alt="Second slide">Parc national Pico Bonito</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                <p>Jean Content</p>
-
-
-            </article>
-            <article class="item">
-                <h2 alt="Third slide">Monteverde</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                <p>Michel Sceptique</p>
-
-            </article>
+            <?php endforeach; ?>
         </div>
 
 

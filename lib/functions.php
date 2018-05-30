@@ -1,5 +1,7 @@
 <?php
-
+if (!isset($_SESSION)) {
+session_start();
+}
 /**
  *  Debugger une variable
  * @param mixed $var La variable à afficher
@@ -25,4 +27,11 @@ function getFooter(){
 
 function getMenu(){
     require_once 'layout/menu.php';
+}
+
+function currentUser(){
+   if (isset($_SESSION["id"]))  {
+       return getOneUser($_SESSION["id"]);
+   }
+   return null;
 }

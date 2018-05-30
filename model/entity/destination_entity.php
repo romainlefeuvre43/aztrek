@@ -1,7 +1,7 @@
 <?php
 
 
-function getAllProjects(int $limit = 999) {
+function getAllDestinations(int $limit = 999) {
     /* @var $connexion PDO */
     global $connexion;
 
@@ -31,18 +31,40 @@ function getAllProjects(int $limit = 999) {
 
     return $stmt->fetchAll();
 }
-function getOneProject(int $id) {
+
+function getAllSejoursByDestinations(int $id) {
+/* @var $connexion PDO */
+    global $connexion;
+
+$query = "SELECT destination.*,
+		sejour.title,
+        sejour.picture,
+        sejour.difficulty,
+        sejour.duration,
+        depart.price
+FROM destination
+INNER JOIN sejour ON sejour.destination_id = destination.id
+INNER JOIN depart ON depart.sejour_id = sejour.id
+WHERE destination.id = :id;";
+
+
+    $stmt = $connexion->prepare($query);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
+
+
+    return $stmt->fetchAll();
+}
+
+
+
+function getOneDestination(int $id) {
     /* @var $connexion PDO */
     global $connexion;
 
-    $query = "SELECT 
-                project.*,
-            date_format(project.date_start, '%e %M %Y') AS date_start_format,
-            datediff(project.date_end, project.date_start) AS days,
-            category.label AS category
-             FROM project
-             INNER JOIN category ON category.id = project.category_id
-             WHERE project.id = :id;";
+    $query = "SELECT *
+    FROM destination
+    WHERE destination.id = :id;";
 
 
     $stmt = $connexion->prepare($query);
@@ -53,7 +75,7 @@ function getOneProject(int $id) {
     return $stmt->fetch();
 }
 
-function insertProject(string $title, string $picture, string $description, float $price, string $date_start, string $date_end, int $category_id) {
+function insertDestination(string $title, string $picture, string $description, float $price, string $date_start, string $date_end, int $category_id) {
         /* @var $connection PDO */
     global $connexion;
 

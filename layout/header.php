@@ -1,3 +1,9 @@
+<?php
+require_once __DIR__ . '/../lib/functions.php';
+
+$utilisateur = currentUser();
+?>
+
 <html lang="fr" dir="ltr">
 
 <head>
@@ -29,9 +35,15 @@
 
         <a class="newsletter" href="#">News-Letter</a>
 
-        <a class="user" href="#">Mon espace</a>
+       
 
         <a class="phone" href="#">Phone</a>
+        
+        <?php if (!isset($utilisateur["id"])) : ?>
+        <a class="user" href="#">Login</a>
+        <?php else: ?>
+         <a class="user" href="#">Mon espace</a>
+         <?php endif; ?>
 
       </nav>
 

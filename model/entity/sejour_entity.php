@@ -18,23 +18,43 @@ function getALLMembers(){
     return $stmt->fetchAll();
 }
 
-function getALLMembersByProject(int $id){
+function getHilightedSejour(int $limit = 999){
     /* @var $connexion PDO */
     global $connexion;
     
-    $query = "SELECT  member.*,
-            CONCAT(member.firstname, ' ', member.lastname) AS fullname
-            FROM member
-    INNER JOIN project_has_member ON project_has_member.member_id = member.id
-    WHERE project_has_member.project_id = :id;";
-            
+    $query = "SELECT *
+            FROM sejour
+            WHERE sejour.highlighted = 1
+            LIMIT :limit;";
             
             $stmt = $connexion->prepare($query);
-            $stmt->bindParam(":id", $id);
+           $stmt->bindParam(":limit", $limit, PDO::PARAM_INT);
             $stmt->execute();
         
 
     return $stmt->fetchAll();
+}
+
+function getOneSejour(int $id) {
+    /* @var $connexion PDO */
+    global $connexion;
+
+    $query = "SELECT sejour.*,
+		depart.date_depart,
+        depart.price,
+        reservation.nb_person
+       FROM sejour
+     INNER JOIN depart ON depart.sejour_id = sejour.id
+    INNER JOIN reservation ON reservation.depart_id = depart.id
+    WHERE sejour.id = :id;";
+
+
+    $stmt = $connexion->prepare($query);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
+
+
+    return $stmt->fetch();
 }
 
 function insertMember(string $firstname, string $lastname, string $picture) {
