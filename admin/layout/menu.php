@@ -6,15 +6,21 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?php echo ADMIN_URL; ?>crud/members/">
+        <a class="nav-link" href="<?php echo ADMIN_URL; ?>crud/destination/">
             <i class="fa fa-users"></i>
-            Membres
+            Destinations
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?php echo ADMIN_URL; ?>crud/projects/">
+        <a class="nav-link" href="<?php echo ADMIN_URL; ?>crud/sejour/">
             <i class="fa fa-briefcase"></i>
-            Projets
+            Séjours
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo ADMIN_URL; ?>crud/users/">
+            <i class="fa fa-briefcase"></i>
+            Utilisateurs
         </a>
     </li>
     

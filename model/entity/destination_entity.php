@@ -75,12 +75,12 @@ function getOneDestination(int $id) {
     return $stmt->fetch();
 }
 
-function insertDestination(string $title, string $picture, string $description, float $price, string $date_start, string $date_end, int $category_id) {
+function insertDestination(string $title, string $picture, string $description) {
         /* @var $connection PDO */
     global $connexion;
 
-    $query = "INSERT INTO project (title, picture, description, price, date_start, date_end, category_id)
-                VALUES (:title, :picture, :description, :price, :date_start, :date_end, :category_id);";
+    $query = "INSERT INTO destination (title, picture, description)
+                VALUES (:title, :picture, :description);";
 
 
     
@@ -88,9 +88,28 @@ function insertDestination(string $title, string $picture, string $description, 
     $stmt->bindParam(":title", $title);
     $stmt->bindParam(":picture", $picture);
     $stmt->bindParam(":description", $description);
-    $stmt->bindParam(":price", $price);
-    $stmt->bindParam(":date_start", $date_start);
-    $stmt->bindParam(":date_end", $date_end);
-    $stmt->bindParam(":category_id", $category_id);
+    
+    
+    
+    $stmt->execute();
+}
+
+function updateDestinations(int $id, string $title, string $picture, string $description) {
+    /* @var $connexion PDO */
+    global $connexion;
+
+    $query = "UPDATE destination 
+                SET title = :title,
+                picture = :picture,
+                description  = :description
+                
+                WHERE id = :id;";
+                
+
+    $stmt = $connexion->prepare($query);
+    $stmt->bindParam(":id", $id);
+    $stmt->bindParam(":title", $title);
+    $stmt->bindParam(":picture", $picture);
+    $stmt->bindParam(":description", $description);
     $stmt->execute();
 }
