@@ -42,7 +42,7 @@ function getOneSejour(int $id) {
     $query = "SELECT sejour.*,
 		depart.date_depart,
         depart.price,
-        reservation.nb_person
+        sejour.places_total - SUM(reservation.nb_person) AS places_restantes
        FROM sejour
      INNER JOIN depart ON depart.sejour_id = sejour.id
     INNER JOIN reservation ON reservation.depart_id = depart.id

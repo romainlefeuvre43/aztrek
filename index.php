@@ -51,7 +51,7 @@ getHeader("Accueil");
         <div class="owl-carousel carousel-incontournables">
             <?php foreach ($list_sejours as $sejour) : ?>
                 <article class="item">
-                    <a href="#">
+                    <a href="sejour.php?id=<?php echo $sejour["id"]; ?>">
                         <figure><img src="uploads/<?php echo $sejour["picture"]; ?>" alt="<?php echo $sejour["title"]; ?>">
                             <figcaption>
                                 <h2><?php echo $sejour["title"]; ?></h2>

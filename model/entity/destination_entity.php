@@ -36,16 +36,16 @@ function getAllSejoursByDestinations(int $id) {
 /* @var $connexion PDO */
     global $connexion;
 
-$query = "SELECT destination.*,
+$query = "SELECT sejour.id,
 		sejour.title,
-        sejour.picture,
-        sejour.difficulty,
-        sejour.duration,
-        depart.price
-FROM destination
-INNER JOIN sejour ON sejour.destination_id = destination.id
-INNER JOIN depart ON depart.sejour_id = sejour.id
-WHERE destination.id = :id;";
+                sejour.picture,
+                sejour.description,
+                sejour.difficulty,
+                sejour.duration,
+                depart.price
+        FROM sejour
+        INNER JOIN depart ON depart.sejour_id = sejour.id
+        WHERE sejour.destination_id = :id;";
 
 
     $stmt = $connexion->prepare($query);

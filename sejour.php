@@ -25,7 +25,7 @@ getHeader("destination"); ?>
         <p><?php echo $sejour["difficulty"]; ?></p>
         <p><?php echo $sejour["program"]; ?></p>
         <p><?php echo $sejour["price"]; ?> €</p>
-        <p><?php echo $sejour["nb_person"]; ?> personnes</p>
+        <p><?php echo $sejour["places_restantes"]; ?> places restantes</p>
     </article>
     
     
