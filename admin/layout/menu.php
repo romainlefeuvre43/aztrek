@@ -7,20 +7,26 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" href="<?php echo ADMIN_URL; ?>crud/destination/">
-            <i class="fa fa-users"></i>
+            <i class="fa fa-plane"></i>
             Destinations
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="<?php echo ADMIN_URL; ?>crud/sejour/">
-            <i class="fa fa-briefcase"></i>
+            <i class="fa fa-suitcase"></i>
             Séjours
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="<?php echo ADMIN_URL; ?>crud/users/">
-            <i class="fa fa-briefcase"></i>
+            <i class="fa fa-users"></i>
             Utilisateurs
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo ADMIN_URL; ?>crud/depart/">
+            <i class="fa fa-calendar"></i>
+            Départs
         </a>
     </li>
     

@@ -1,22 +1,6 @@
 <?php
 
-function getALLMembers(){
-    /* @var $connexion PDO */
-    global $connexion;
-    
-    $query = "SELECT  member.*,
-            CONCAT(member.firstname, ' ', member.lastname) AS fullname
-            FROM member;";
-    
-    
-            
-            
-            $stmt = $connexion->prepare($query);
-            $stmt->execute();
-        
 
-    return $stmt->fetchAll();
-}
 
 function getHilightedSejour(int $limit = 999){
     /* @var $connexion PDO */
@@ -57,36 +41,57 @@ function getOneSejour(int $id) {
     return $stmt->fetch();
 }
 
-function insertMember(string $firstname, string $lastname, string $picture) {
-    /* @var $connexion PDO */
+function insertSejour(string $destination_id, string $title, string $picture, string $description, string $difficulty, string $program, string $duration, string $highlighted, string $places_total) {
+        /* @var $connection PDO */
     global $connexion;
 
-    $query = "INSERT INTO member (firstname, lastname, picture)
-                VALUES (:firstname, :lastname, :picture);";
+    $query = "INSERT INTO sejour (destination_id, title, picture, description, difficulty, program, duration, highlighted, places_total)
+                VALUES (:destination_id, :title, :picture, :description, :difficulty, :program, :duration, :highlighted, :places_total);";
 
+
+    
     $stmt = $connexion->prepare($query);
-    $stmt->bindParam(":firstname", $firstname);
-    $stmt->bindParam(":lastname", $lastname);
+    $stmt->bindParam(":destination_id", $destination_id);
+    $stmt->bindParam(":title", $title);
     $stmt->bindParam(":picture", $picture);
+    $stmt->bindParam(":description", $description);
+    $stmt->bindParam(":difficulty", $difficulty);
+    $stmt->bindParam(":program", $program);
+    $stmt->bindParam(":duration", $duration);
+    $stmt->bindParam(":highlighted", $highlighted);
+    $stmt->bindParam(":places_total", $places_total);
+    
     $stmt->execute();
 }
 
-function updateMember(int $id, string $firstname, string $lastname, string $picture) {
+function updateSejour(int $id, string $title, string $picture, string $description, string $difficulty, string $program, string $duration, string $highlighted, string $places_total) {
     /* @var $connexion PDO */
     global $connexion;
 
-    $query = "UPDATE member 
-                SET firstname = :firstname,
-                lastname  = :lastname,
-                picture = :picture
+    $query = "UPDATE sejour
+                SET  title = :title,
+                picture = :picture,
+                description  = :description,
+                difficulty  = :difficulty,
+                program  = :program,
+                duration  = :duration,
+                highlighted  = :highlighted,
+                places_total  = :places_total
+                
                 WHERE id = :id;";
                 
 
     $stmt = $connexion->prepare($query);
     $stmt->bindParam(":id", $id);
-    $stmt->bindParam(":firstname", $firstname);
-    $stmt->bindParam(":lastname", $lastname);
+   
+    $stmt->bindParam(":title", $title);
     $stmt->bindParam(":picture", $picture);
+    $stmt->bindParam(":description", $description);
+    $stmt->bindParam(":difficulty", $difficulty);
+    $stmt->bindParam(":program", $program);
+    $stmt->bindParam(":duration", $description);
+    $stmt->bindParam(":highlighted", $highlighted);
+    $stmt->bindParam(":places_total", $places_total);
     $stmt->execute();
 }
 

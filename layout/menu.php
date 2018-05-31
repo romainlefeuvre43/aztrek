@@ -1,6 +1,6 @@
 <nav id="main-nav" role="navigation">
         <ul class="container">
-          <li><a href="index.html" id="home"> <img src="../Aztrek/images/home.png" alt="picto accueil"> </a></li>
+          <li><a href="index.php" id="home"> <img src="../Aztrek/images/home.png" alt="picto accueil"> </a></li>
           <li class="has-sub"><a href="">Destinations</a>
             <ul>
               <li><a href="#">Mexique</a></li>

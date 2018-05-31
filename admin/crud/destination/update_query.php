@@ -1,4 +1,4 @@
-<?php
+è<?php
 
 require_once '../../../model/database.php';
 

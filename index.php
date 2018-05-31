@@ -3,7 +3,7 @@ require_once 'lib/functions.php';
 require_once 'model/database.php';
 
 $list_destinations = getAllEntity("destination");
-$list_sejours = getHilightedSejour(3);
+$list_sejours = getHilightedSejour(4);
 $list_comment = getAllEntity("comment");
 
 getHeader("Accueil");

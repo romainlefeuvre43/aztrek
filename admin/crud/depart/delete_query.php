@@ -4,6 +4,6 @@ require_once '../../../model/database.php';
 
 $id = $_GET["id"];
 
-deleteEntity("user", $id);
+deleteEntity("destination", $id);
 
 //header("Location: index.php");

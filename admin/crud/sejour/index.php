@@ -16,9 +16,13 @@ require_once '../../layout/header.php'; ?>
     <thead class="thead-dark">
     <tr>
         <th>Titre</th>
-        <th>Date de début</th>
         <th>Photo</th>
-        <th>Catégorie</th>
+        <th>Description</th>
+        <th>Difficulté</th>
+        <th>Programme</th>
+        <th>Durée</th>
+        <th>Mise en avant</th>
+        <th>Places totales</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -26,10 +30,15 @@ require_once '../../layout/header.php'; ?>
         <?php foreach ($list_sejours as $sejour) : ?>
             <tr>
                 <td><?php echo $sejour["title"]; ?></td>
-                <td><?php echo $sejour["date_start"]; ?></td>
                 <?php $picture = (!empty($sejour["picture"])) ? "../../../uploads/" . $sejour["picture"] : "http://via.placeholder.com/150x150"; ?>
                 <td><img src="<?php echo $picture; ?>" class="img-thumbnail"></td>
-                <td><?php echo $sejour["category"]; ?></td>
+                <td><?php echo $sejour["description"]; ?></td>
+                
+                <td><?php echo $sejour["difficulty"]; ?></td>
+                <td><?php echo $sejour["program"]; ?></td>
+                <td><?php echo $sejour["duration"]; ?></td>
+                <td><?php echo $sejour["highlighted"]; ?></td>
+                <td><?php echo $sejour["places_total"]; ?></td>
                 <td>
                     <a href="update.php?id=<?php echo $sejour["id"]; ?>" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                     <a href="delete_query.php?id=<?php echo $sejour["id"]; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>

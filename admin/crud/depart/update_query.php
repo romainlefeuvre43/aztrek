@@ -3,29 +3,24 @@
 require_once '../../../model/database.php';
 
 // Récupérer les données du formulaire
-$destination_id = $_POST["destination_id"];
+$id = $_POST["id"];
 $title = $_POST["title"];
 $description = $_POST["description"];
-$difficulty = $_POST["difficulty"];
-$program = $_POST["program"];
-$duration = $_POST["duration"];
-$highlighted = isset($_POST["highlighted"]) ? 1 : 0; // Checkbox
-$places_total = $_POST["places_total"];
 
+$destination = getOneEntity("destination", $id);
+$picture = !is_null($destination["picture"]) ? $destination["picture"] : ""; // Image présente avant update
 
-
-
-$picture = "";
-
+    
 // Vérifier si l'utilisateur a uploadé un fichier
-if (isset($_FILES["picture"])){
+if ($_FILES["picture"]["error"] == 0) {
     $picture = $_FILES["picture"]["name"];
+    // Déplacer le fichier uploadé
     move_uploaded_file($_FILES["picture"]["tmp_name"], "../../../uploads/" . $picture);
 }
 
 
 // Insertion des données en BDD
-insertSejour($destination_id, $title, $picture, $description, $difficulty, $program, $duration, $highlighted, $places_total);
+updateDestinations($id, $title, $picture, $description);
 
 // Redirection vers la liste
 header("Location: index.php");

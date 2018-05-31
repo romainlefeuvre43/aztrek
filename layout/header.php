@@ -40,15 +40,15 @@ $utilisateur = currentUser();
         <a class="phone" href="#">Phone</a>
         
         <?php if (!isset($utilisateur["id"])) : ?>
-        <a class="user" href="#">Login</a>
+        <a class="user" href="admin/login.php">Login</a>
         <?php else: ?>
-         <a class="user" href="#">Mon espace</a>
+         <a class="user" href="admin/login.php">Mon espace</a>
          <?php endif; ?>
 
       </nav>
 
       <div class="logo-header">
-        <a href="index.html"><img src="../Aztrek/images/logo-aztrek.svg" alt="logo aztrek"> </a>
+        <a href="index.php"><img src="../Aztrek/images/logo-aztrek.svg" alt="logo aztrek"> </a>
 
       </div>
 

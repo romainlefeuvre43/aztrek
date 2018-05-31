@@ -15,9 +15,8 @@ require_once '../../layout/header.php'; ?>
 <table class="table table-striped">
     <thead class="thead-dark">
     <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Photo</th>
+        <th>Pseudo</th>
+        <th>Email</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -26,8 +25,7 @@ require_once '../../layout/header.php'; ?>
     <tr>
         <td><?php echo $user["pseudo"]; ?></td>
         <td><?php echo $user["email"]; ?></td>
-        <?php $picture = (!empty($user["picture"])) ? "../../../uploads/" . $user["picture"] : "http://via.placeholder.com/150x150"; ?>
-                <td><img src="<?php echo $picture; ?>" class="img-thumbnail"></td>
+        
         <td>
             <a href="update.php?id=<?php echo $user["id"]; ?>" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
             <a href="delete_query.php?id=<?php echo $user["id"]; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>

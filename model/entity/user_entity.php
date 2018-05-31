@@ -36,3 +36,39 @@ function getOneUser(int $id) {
     return $stmt->fetch();
 }
 
+function insertUser(string $pseudo, string $email) {
+        /* @var $connection PDO */
+    global $connexion;
+
+    $query = "INSERT INTO user (pseudo, email)
+                VALUES (:pseudo, :email);";
+
+
+    
+    $stmt = $connexion->prepare($query);
+    $stmt->bindParam(":pseudo", $pseudo);
+    $stmt->bindParam(":email", $email);
+   
+     $stmt->execute();
+}
+
+
+function updateUser(int $id, string $pseudo, string $email) {
+        /* @var $connection PDO */
+    global $connexion;
+
+    $query = "UPDATE user 
+                SET pseudo = :pseudo,
+                email  = :email
+                
+                WHERE id = :id;";
+
+
+    
+    $stmt = $connexion->prepare($query);
+     $stmt->bindParam(":id", $id);
+    $stmt->bindParam(":pseudo", $pseudo);
+    $stmt->bindParam(":email", $email);
+   
+     $stmt->execute();
+}
